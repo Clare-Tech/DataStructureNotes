@@ -71,11 +71,15 @@ const restaurant = {
     );
   },
   orderPasta: function (ing1, ing2, ing3) {
-    console.log(`Here is your delicious pasta with ${ing1} ${ing2} and ${ing3}`);
+    console.log(
+      `Here is your delicious pasta with ${ing1} ${ing2} and ${ing3}`
+    );
   },
+  orderPizza: function(mainIngredient, ...otherIngredient){
+    console.log(mainIngredient);
+    console.log(otherIngredient);
+  }
 };
-
-
 
 // const ingredients = [prompt("Let's make pasta! ingredient 1?"), prompt("Let's make pasta! ingredient 2?"), prompt("Let's make pasta! ingredient 3?")];
 // console.log(ingredients);
@@ -83,27 +87,26 @@ const restaurant = {
 // restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2])
 // restaurant.orderPasta(...ingredients)
 
-const newRestaurantCopy={...restaurant}
-newRestaurantCopy.name = "Clare Meals"
-console.log(restaurant.name);
-console.log(newRestaurantCopy.name);
+// const newRestaurantCopy={...restaurant}
+// newRestaurantCopy.name = "Clare Meals"
+// console.log(restaurant.name);
+// console.log(newRestaurantCopy.name);
 
-
-const newArray = [...restaurant.mainMenu, "Gnocci"];
-console.log(newArray);
+// const newArray = [...restaurant.mainMenu, "Gnocci"];
+// console.log(newArray);
 // the spread operator does 2 things - copy array and joins 2 array
 
-const copyArray = [...restaurant.mainMenu];
-const joinArray = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// const copyArray = [...restaurant.mainMenu];
+// const joinArray = [...restaurant.mainMenu, ...restaurant.starterMenu];
 
-console.log("copy", copyArray);
-console.log("Join", joinArray);
+// console.log("copy", copyArray);
+// console.log("Join", joinArray);
 
 // spread operators works on all iterables.
 // iterables are array, strings, set, and maps. NOT object
-const ab = "Clare";
-let cd = [...ab, " ", "S."];
-console.log(cd);
+// const ab = "Clare";
+// let cd = [...ab, " ", "S."];
+// console.log(cd);
 
 // restaurant.orderDelivery({
 //   time: "22:30",
@@ -204,3 +207,34 @@ console.log(cd);
 //   text[index] = value*2
 // }
 // console.log(text);
+
+// rest operator because the dots are in the lefthand side. rest is for packing while spread is for unpacking
+
+// const [a, b, ...rest] = [1, 2, 3, 4, 5, 6];
+// console.log(rest);
+
+// const [pizza, , Risotto, ...otherFoods] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+
+// console.log(pizza, Risotto, otherFoods);
+
+// const {sat, ...weekdays} = {...restaurant.openingHours}
+// console.log(sat);
+
+let sum = 0;
+function addFunction(...number) {
+  for (let i = 0; i < number.length; i++) {
+    sum += number[i];
+  }
+  document.getElementById("demo").innerHTML = sum;
+  console.log(sum);
+}
+addFunction(2, 3, 4);
+addFunction(5, 6);
+addFunction(7, 8, 9, 1);
+const x = [23,5,7]
+addFunction(...x) //we unpack the array
+
+restaurant.orderPizza("Mushroom", "onion", "Olives", "Spinach")
