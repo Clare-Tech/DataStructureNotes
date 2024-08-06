@@ -37,40 +37,73 @@
 // console.log(i, j, k);
 
 // destructuring object
-// const restaurant = {
-//   name: "Classio Italiano",
-//   location: "Via Angelo Tavant 23, Firenzo, Italy",
-//   categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
-//   starterMenu: ["Foccaccia", "Bruschetta", "Garlic", "Bread", "Caprese Salad"],
-//   mainMenu: ["Pizza", "Pasta", "Risotto"],
-//   openingHours: {
-//     thur: {
-//       open: 12,
-//       close: 22,
-//     },
-//     fri: {
-//       open: 11,
-//       close: 23,
-//     },
-//     sat: {
-//       open: 0,
-//       close: 24,
-//     },
-//   },
-//   order: function (starterindex, mainIndex) {
-//     return [this.starterMenu[starterindex], this.mainMenu[mainIndex]];
-//   },
-//   orderDelivery: function ({
-//     time = "20:00",
-//     address,
-//     mainIndex = 1,
-//     starterIndex = 0,
-//   }) {
-//     console.log(
-//       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
-//     );
-//   },
-// };
+const restaurant = {
+  name: "Classio Italiano",
+  location: "Via Angelo Tavant 23, Firenzo, Italy",
+  categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+  starterMenu: ["Foccaccia", "Bruschetta", "Garlic", "Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
+  openingHours: {
+    thur: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0,
+      close: 24,
+    },
+  },
+  order: function (starterindex, mainIndex) {
+    return [this.starterMenu[starterindex], this.mainMenu[mainIndex]];
+  },
+  orderDelivery: function ({
+    time = "20:00",
+    address,
+    mainIndex = 1,
+    starterIndex = 0,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} andja ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious pasta with ${ing1} ${ing2} and ${ing3}`);
+  },
+};
+
+
+
+// const ingredients = [prompt("Let's make pasta! ingredient 1?"), prompt("Let's make pasta! ingredient 2?"), prompt("Let's make pasta! ingredient 3?")];
+// console.log(ingredients);
+
+// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2])
+// restaurant.orderPasta(...ingredients)
+
+const newRestaurantCopy={...restaurant}
+newRestaurantCopy.name = "Clare Meals"
+console.log(restaurant.name);
+console.log(newRestaurantCopy.name);
+
+
+const newArray = [...restaurant.mainMenu, "Gnocci"];
+console.log(newArray);
+// the spread operator does 2 things - copy array and joins 2 array
+
+const copyArray = [...restaurant.mainMenu];
+const joinArray = [...restaurant.mainMenu, ...restaurant.starterMenu];
+
+console.log("copy", copyArray);
+console.log("Join", joinArray);
+
+// spread operators works on all iterables.
+// iterables are array, strings, set, and maps. NOT object
+const ab = "Clare";
+let cd = [...ab, " ", "S."];
+console.log(cd);
 
 // restaurant.orderDelivery({
 //   time: "22:30",
@@ -97,7 +130,6 @@
 // }
 // document.write(text)
 
-
 // const num = [1,2,3,4,5,6,7]
 // const alpha = ["a","b", "c", "d", "e", "f", "g"]
 
@@ -106,7 +138,6 @@
 // console.log(newArrya);
 // document.getElementById("demo").innerHTML = newArrya.join(",  ")
 
-
 // function sumMultiply(a,b){
 //   return [a*b, a+b]
 // }
@@ -114,19 +145,18 @@
 // const [multiply, sum, division="No division"] = sumMultiply(4,5)
 // console.log(division);
 
-
-const personOne = {
-  name:"Sally",
-  age:32,
-  address:{
-    city:"Somewhere",
-    state:"Lagos"
-  },
-  career:{
-    position:"Software Engineer",
-    salary:"$1,000"
-  }
-}
+// const personOne = {
+//   name:"Sally",
+//   age:32,
+//   address:{
+//     city:"Somewhere",
+//     state:"Lagos"
+//   },
+//   career:{
+//     position:"Software Engineer",
+//     salary:"$1,000"
+//   }
+// }
 
 // const personTwo = {
 //   age:32,
@@ -167,10 +197,10 @@ const personOne = {
 // console.log(sum);
 // console.log(numbers);
 
-const numbers1 = [45, 4, 9, 16, 25];
-let text = []
-numbers1.map(myFunction)
-function myFunction(value, index, array){
-  text[index] = value*2
-}
-console.log(text);
+// const numbers1 = [45, 4, 9, 16, 25];
+// let text = []
+// numbers1.map(myFunction)
+// function myFunction(value, index, array){
+//   text[index] = value*2
+// }
+// console.log(text);
