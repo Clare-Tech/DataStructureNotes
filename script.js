@@ -81,6 +81,21 @@ const restaurant = {
   }
 };
 
+const rest1 = {
+  name:"Capri",
+  numGuests:20
+}
+const rest2={
+  name:"La piazza",
+  owner:"Giovanni Rossi"
+}
+// rest1.numGuests =  rest1.numGuests || 10
+// rest2.numGuests = rest2.numGuests || 10
+rest1.numGuests ||= 10
+rest2.numGuests ||=10
+
+console.log(rest1);
+console.log(rest2)
 // const ingredients = [prompt("Let's make pasta! ingredient 1?"), prompt("Let's make pasta! ingredient 2?"), prompt("Let's make pasta! ingredient 3?")];
 // console.log(ingredients);
 
@@ -223,18 +238,18 @@ const restaurant = {
 // const {sat, ...weekdays} = {...restaurant.openingHours}
 // console.log(sat);
 
-let sum = 0;
-function addFunction(...number) {
-  for (let i = 0; i < number.length; i++) {
-    sum += number[i];
-  }
-  document.getElementById("demo").innerHTML = sum;
-  console.log(sum);
-}
-addFunction(2, 3, 4);
-addFunction(5, 6);
-addFunction(7, 8, 9, 1);
-const x = [23,5,7]
-addFunction(...x) //we unpack the array
+// let sum = 0;
+// function addFunction(...number) {
+//   for (let i = 0; i < number.length; i++) {
+//     sum += number[i];
+//   }
+//   document.getElementById("demo").innerHTML = sum;
+//   console.log(sum);
+// }
+// addFunction(2, 3, 4);
+// addFunction(5, 6);
+// addFunction(7, 8, 9, 1);
+// const x = [23,5,7]
+// addFunction(...x) //we unpack the array
 
-restaurant.orderPizza("Mushroom", "onion", "Olives", "Spinach")
+// restaurant.orderPizza("Mushroom", "onion", "Olives", "Spinach")
