@@ -1,6 +1,6 @@
 "use strict";
 
-// const restaurant = {
+// const restaurant1 = {
 //   name: "Classio Italiano",
 //   location: "Via Angelo Tavant 23, Firenzo, Italy",
 //   categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
@@ -16,7 +16,7 @@
 // const [a, b, c] = arr;
 // console.log(a, b, c);
 
-// let [mainCourse, secondary] = restaurant.mainMenu;
+// let [mainCourse, secondary] = restaurant1.mainMenu;
 // console.log(mainCourse, secondary);
 // create a temporary array and switching variables
 // const temp = mainCourse
@@ -37,65 +37,100 @@
 // console.log(i, j, k);
 
 // destructuring object
-const restaurant = {
-  name: "Classio Italiano",
-  location: "Via Angelo Tavant 23, Firenzo, Italy",
-  categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
-  starterMenu: ["Foccaccia", "Bruschetta", "Garlic", "Bread", "Caprese Salad"],
-  mainMenu: ["Pizza", "Pasta", "Risotto"],
-  openingHours: {
-    thur: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0,
-      close: 24,
-    },
+const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
   },
-  order: function (starterindex, mainIndex) {
-    return [this.starterMenu[starterindex], this.mainMenu[mainIndex]];
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
   },
-  orderDelivery: function ({
-    time = "20:00",
-    address,
-    mainIndex = 1,
-    starterIndex = 0,
-  }) {
-    console.log(
-      `Order received! ${this.starterMenu[starterIndex]} andja ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
-    );
+  [weekdays[5]]: {
+    open: 0,
+    close: 24,
   },
-  orderPasta: function (ing1, ing2, ing3) {
-    console.log(
-      `Here is your delicious pasta with ${ing1} ${ing2} and ${ing3}`
-    );
-  },
-  orderPizza: function(mainIngredient, ...otherIngredient){
-    console.log(mainIngredient);
-    console.log(otherIngredient);
-  }
 };
 
-const rest1 = {
-  name:"Capri",
-  numGuests:20
-}
-const rest2={
-  name:"La piazza",
-  owner:"Giovanni Rossi"
-}
+// for(const day of weekdays){
+//   const open = openingHours[day] ?.open ??  "closed"
+//   console.log(`on ${day}. we open at ${open}`);
+  
+// }
+// console.log(openingHours);
+
+// const restaurant = {
+//   name: "Classio Italiano",
+//   location: "Via Angelo Tavant 23, Firenzo, Italy",
+//   categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+//   starterMenu: ["Foccaccia", "Bruschetta", "Garlic", "Bread", "Caprese Salad"],
+//   mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+// ES6 enhanced object literal
+// openingHours,
+
+// new way of writing method
+//   order(starterindex, mainIndex) {
+//     return [this.starterMenu[starterindex], this.mainMenu[mainIndex]];
+//   },
+//   orderDelivery: function ({
+//     time = "20:00",
+//     address,
+//     mainIndex = 1,
+//     starterIndex = 0,
+//   }) {
+//     console.log(
+//       `Order received! ${this.starterMenu[starterIndex]} andja ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+//     );
+//   },
+//   orderPasta: function (ing1, ing2, ing3) {
+//     console.log(
+//       `Here is your delicious pasta with ${ing1} ${ing2} and ${ing3}`
+//     );
+//   },
+//   orderPizza: function(mainIngredient, ...otherIngredient){
+//     console.log(mainIngredient);
+//     console.log(otherIngredient);
+//   }
+// };
+
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu]
+// console.log(menu);
+
+// for/of loop
+// let text = ""
+
+// for(let [key, value] of menu.entries()){
+// text += `${values[0] + 1} : ${values[1]} <br/>`
+// text += `${key + 1} : ${value} <br/>`
+// }
+// for(let values of restaurant.mainMenu){
+//   text += `${values} <br/>`
+// }
+// const cars = ["BMW", "Volvo", "Mini"]
+// let text = ""
+// for(const x of cars){
+
+//   text += `${x} <br/>`
+// }
+// document.getElementById("demo").innerHTML = text
+// const rest1 = {
+//   name:"Capri",
+//   numGuests:20
+// }
+// const rest2={
+//   name:"La piazza",
+//   owner:"Giovanni Rossi"
+// }
 // rest1.numGuests =  rest1.numGuests || 10
 // rest2.numGuests = rest2.numGuests || 10
-rest1.numGuests ||= 10
-rest2.numGuests ||=10
+// rest1.numGuests ||= 10
+// rest2.numGuests ||=10
 
-console.log(rest1);
-console.log(rest2)
+// console.log(rest1);
+// console.log(rest2)
 // const ingredients = [prompt("Let's make pasta! ingredient 1?"), prompt("Let's make pasta! ingredient 2?"), prompt("Let's make pasta! ingredient 3?")];
 // console.log(ingredients);
 
@@ -253,3 +288,14 @@ console.log(rest2)
 // addFunction(...x) //we unpack the array
 
 // restaurant.orderPizza("Mushroom", "onion", "Olives", "Spinach")
+
+
+// javascript features that almost nobody knows about
+
+function calculate(price, taxes, description){
+  const total = price * (1+taxes)
+  console.log(`${description} with Tax: $${total}`);
+  
+}
+
+calculate(100, 0.07, "My Item")
