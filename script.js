@@ -54,6 +54,32 @@ const openingHours = {
   },
 };
 
+const days = Object.values(openingHours)
+const entries = Object.entries(openingHours)
+let openStr = `we are opened on ${days.length}: `
+
+for(const [day, {open, close}] of entries){
+  console.log(`On ${day}, we open at ${open} and close at ${close}`);
+  
+  
+}
+
+// for(let day of days){
+//   openStr += `${day}, `
+// }
+// for(let [i,j] of entries){
+//   console.log(`Result is ${i, j}`);
+  
+//   for(let [k,l] of Object.entries(j)){
+//     console.log(i + ": " + k + "-" + l);
+//     document.getElementById("demo").innerHTML=`${i}: ${k}${l}`
+    
+//   }
+
+
+
+// console.log(openStr);
+// document.getElementById("demo").innerHTML=openStr
 // for(const day of weekdays){
 //   const open = openingHours[day] ?.open ??  "closed"
 //   console.log(`on ${day}. we open at ${open}`);
@@ -292,10 +318,10 @@ const openingHours = {
 
 // javascript features that almost nobody knows about
 
-function calculate(price, taxes, description){
-  const total = price * (1+taxes)
-  console.log(`${description} with Tax: $${total}`);
+// function calculate(price, taxes, description){
+//   const total = price * (1+taxes)
+//   console.log(`${description} with Tax: $${total}`);
   
-}
+// }
 
-calculate(100, 0.07, "My Item")
+// calculate(100, 0.07, "My Item")
