@@ -58,11 +58,19 @@ const days = Object.values(openingHours)
 const entries = Object.entries(openingHours)
 let openStr = `we are opened on ${days.length}: `
 
-for(const [day, {open, close}] of entries){
-  console.log(`On ${day}, we open at ${open} and close at ${close}`);
-  
+// for(const [day, {open, close}] of entries){
+//   console.log(`On ${day}, we open at ${open} and close at ${close}`);
+// }
+for(let [key, {open, close}] of entries){
+    console.log(`on ${key}, we open at ${open} and close at ${close}`);
   
 }
+
+const data = {
+  open: 12,
+  close: 22,
+}
+
 
 // for(let day of days){
 //   openStr += `${day}, `
@@ -79,6 +87,7 @@ for(const [day, {open, close}] of entries){
 
 
 // console.log(openStr);
+
 // document.getElementById("demo").innerHTML=openStr
 // for(const day of weekdays){
 //   const open = openingHours[day] ?.open ??  "closed"
