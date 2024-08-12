@@ -54,37 +54,33 @@ const openingHours = {
   },
 };
 
-const days = Object.values(openingHours)
-const entries = Object.entries(openingHours)
-let openStr = `we are opened on ${days.length}: `
+const days = Object.values(openingHours);
+const entries = Object.entries(openingHours);
+let openStr = `we are opened on ${days.length}: `;
 
 // for(const [day, {open, close}] of entries){
 //   console.log(`On ${day}, we open at ${open} and close at ${close}`);
 // }
-for(let [key, {open, close}] of entries){
-    console.log(`on ${key}, we open at ${open} and close at ${close}`);
-  
+for (let [key, { open, close }] of entries) {
+  console.log(`on ${key}, we open at ${open} and close at ${close}`);
 }
 
 const data = {
   open: 12,
   close: 22,
-}
-
+};
 
 // for(let day of days){
 //   openStr += `${day}, `
 // }
 // for(let [i,j] of entries){
 //   console.log(`Result is ${i, j}`);
-  
+
 //   for(let [k,l] of Object.entries(j)){
 //     console.log(i + ": " + k + "-" + l);
 //     document.getElementById("demo").innerHTML=`${i}: ${k}${l}`
-    
+
 //   }
-
-
 
 // console.log(openStr);
 
@@ -92,7 +88,7 @@ const data = {
 // for(const day of weekdays){
 //   const open = openingHours[day] ?.open ??  "closed"
 //   console.log(`on ${day}. we open at ${open}`);
-  
+
 // }
 // console.log(openingHours);
 
@@ -324,13 +320,81 @@ const data = {
 
 // restaurant.orderPizza("Mushroom", "onion", "Olives", "Spinach")
 
-
 // javascript features that almost nobody knows about
 
 // function calculate(price, taxes, description){
 //   const total = price * (1+taxes)
 //   console.log(`${description} with Tax: $${total}`);
-  
+
 // }
 
 // calculate(100, 0.07, "My Item")
+
+// SET
+// const a = ["pizza", "pizza", "mango", "orange", "pineapple", "pineapple"]
+// const val = new Set(["pizza", "pizza", "mango", "orange", "pineapple", "pineapple"])
+// console.log(val);
+// console.log(val.has("bread"));
+// console.log(val.size);
+// console.log(val.add("Garlic bread"));
+
+// const unpack = [... new Set(a)]
+// console.log(unpack);
+
+// Map() key:value pair
+const restaurant2 = new Map();
+restaurant2.set("name", ["Mike", "Jane", "Divine"]);
+restaurant2.set(true, "we are opened");
+restaurant2.set(false, "We are closed");
+restaurant2.set("open", 11);
+restaurant2.set("close", 23);
+const arr = [1, 2, 3];
+restaurant2.set(arr, "test");
+restaurant2.set(document.querySelector("h1"), "heading");
+
+// to read a data from a Map(), we use a get()
+console.log(restaurant2.get("name"));
+console.log(restaurant2.get("open"));
+console.log(restaurant2);
+console.log(restaurant2.get(arr));
+
+const newMap = new Map([
+  ["question", "what is the best programming langauge?"],
+  [1, "Javascript"],
+  [2, "Java"],
+  [3, "C#"],
+  ["correct", 1],
+  [true, "correct"],
+  [false, "Try again"],
+]);
+const text = "";
+
+for (let [key, value] of newMap) {
+  if (typeof key === "number") {
+    console.log(`The ${key} is ${value}`);
+  }
+}
+// const answer = Number(prompt(["You anwer is"]))
+// answer === newMap.get("correct") ?  console.log(newMap.get(true)) :  console.log(newMap.get(false));;
+// if(answer === 1){
+  // console.log(newMap.get(true));
+  
+// }
+// console.log(newMap);
+
+// converting an object into a map using Objects.map(object)
+const hourMap = new Map(Object.entries(openingHours));
+// console.log(hourMap);
+
+// converting a Map() into an array is by unpacking it
+console.log([...newMap]);
+console.log(typeof newMap);
+console.log([...newMap.entries()]);
+console.log([...newMap.keys()]);
+console.log([...newMap.values()]);
+
+
+
+
+
+
