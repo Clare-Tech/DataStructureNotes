@@ -61,14 +61,14 @@ let openStr = `we are opened on ${days.length}: `;
 // for(const [day, {open, close}] of entries){
 //   console.log(`On ${day}, we open at ${open} and close at ${close}`);
 // }
-for (let [key, { open, close }] of entries) {
-  console.log(`on ${key}, we open at ${open} and close at ${close}`);
-}
+// for (let [key, { open, close }] of entries) {
+//   console.log(`on ${key}, we open at ${open} and close at ${close}`);
+// }
 
-const data = {
-  open: 12,
-  close: 22,
-};
+// const data = {
+//   open: 12,
+//   close: 22,
+// };
 
 // for(let day of days){
 //   openStr += `${day}, `
@@ -342,39 +342,39 @@ const data = {
 // console.log(unpack);
 
 // Map() key:value pair
-const restaurant2 = new Map();
-restaurant2.set("name", ["Mike", "Jane", "Divine"]);
-restaurant2.set(true, "we are opened");
-restaurant2.set(false, "We are closed");
-restaurant2.set("open", 11);
-restaurant2.set("close", 23);
-const arr = [1, 2, 3];
-restaurant2.set(arr, "test");
-restaurant2.set(document.querySelector("h1"), "heading");
+// const restaurant2 = new Map();
+// restaurant2.set("name", ["Mike", "Jane", "Divine"]);
+// restaurant2.set(true, "we are opened");
+// restaurant2.set(false, "We are closed");
+// restaurant2.set("open", 11);
+// restaurant2.set("close", 23);
+// const arr = [1, 2, 3];
+// restaurant2.set(arr, "test");
+// restaurant2.set(document.querySelector("h1"), "heading");
 
 // to read a data from a Map(), we use a get()
-console.log(restaurant2.get("name"));
-console.log(restaurant2.get("open"));
-console.log(restaurant2);
-console.log(restaurant2.get(arr));
+// console.log(restaurant2.get("name"));
+// console.log(restaurant2.get("open"));
+// console.log(restaurant2);
+// console.log(restaurant2.get(arr));
 
-const newMap = new Map([
-  ["question", "what is the best programming langauge?"],
-  [1, "Javascript"],
-  [2, "Java"],
-  [3, "C#"],
-  ["correct", 1],
-  [true, "correct"],
-  [false, "Try again"],
-]);
-const text = "";
+// const newMap = new Map([
+//   ["question", "what is the best programming langauge?"],
+//   [1, "Javascript"],
+//   [2, "Java"],
+//   [3, "C#"],
+//   ["correct", 1],
+//   [true, "correct"],
+//   [false, "Try again"],
+// ]);
+// const text = "";
 
-for (let [key, value] of newMap) {
-  if (typeof key === "number") {
-    console.log(`The ${key} is ${value}`);
-  }
-}
-// const answer = Number(prompt(["You anwer is"]))
+// for (let [key, value] of newMap) {
+//   if (typeof key === "number") {
+//     console.log(`The ${key} is ${value}`);
+//   }
+// }
+// const answer = Number(prompt(["You answer is"]))
 // answer === newMap.get("correct") ?  console.log(newMap.get(true)) :  console.log(newMap.get(false));;
 // if(answer === 1){
   // console.log(newMap.get(true));
@@ -383,18 +383,62 @@ for (let [key, value] of newMap) {
 // console.log(newMap);
 
 // converting an object into a map using Objects.map(object)
-const hourMap = new Map(Object.entries(openingHours));
+// const hourMap = new Map(Object.entries(openingHours));
 // console.log(hourMap);
 
 // converting a Map() into an array is by unpacking it
-console.log([...newMap]);
-console.log(typeof newMap);
-console.log([...newMap.entries()]);
-console.log([...newMap.keys()]);
-console.log([...newMap.values()]);
+// console.log([...newMap]);
+// console.log(typeof newMap);
+// console.log([...newMap.entries()]);
+// console.log([...newMap.keys()]);
+// console.log([...newMap.values()]);
 
 
 
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
 
+// 1 create an array
+
+// console.log(gameEvents.values());
+const events = [...new Set(gameEvents.values())]
+console.log(events);
+
+
+// 2.
+gameEvents.delete(64)
+console.log(gameEvents);
+
+// 3.
+const str = `An event happened, on average, every ${90/gameEvents.size} minutes`
+console.log(str);
+
+const mins = [...gameEvents.keys()].pop()
+// const lastValue = mins[mins.length - 1]
+console.log(mins/gameEvents.size);
+
+
+// 4. 
+for(const [key, value] of events){
+  // const keys = 
+  if(key <= 45){
+    console.log(`[FIRST HALF] ${key}: ${value}`);
+    
+  }else{
+    console.log(`[SECOND HALF] ${key}: ${value}`);
+    
+  }
+}
 
 
