@@ -377,8 +377,8 @@ let openStr = `we are opened on ${days.length}: `;
 // const answer = Number(prompt(["You answer is"]))
 // answer === newMap.get("correct") ?  console.log(newMap.get(true)) :  console.log(newMap.get(false));;
 // if(answer === 1){
-  // console.log(newMap.get(true));
-  
+// console.log(newMap.get(true));
+
 // }
 // console.log(newMap);
 
@@ -393,52 +393,127 @@ let openStr = `we are opened on ${days.length}: `;
 // console.log([...newMap.keys()]);
 // console.log([...newMap.values()]);
 
-
-
-const gameEvents = new Map([
-  [17, '⚽️ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽️ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, '🔶 Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽️ GOAL'],
-  [80, '⚽️ GOAL'],
-  [92, '🔶 Yellow card'],
-]);
+// const gameEvents = new Map([
+//   [17, '⚽️ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽️ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽️ GOAL'],
+//   [80, '⚽️ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
 
 // 1 create an array
 
 // console.log(gameEvents.values());
-const events = [...new Set(gameEvents.values())]
-console.log(events);
-
+// const events = [...new Set(gameEvents.values())]
+// console.log(events);
 
 // 2.
-gameEvents.delete(64)
-console.log(gameEvents);
+// gameEvents.delete(64)
+// console.log(gameEvents);
 
 // 3.
-const str = `An event happened, on average, every ${90/gameEvents.size} minutes`
-console.log(str);
+// const str = `An event happened, on average, every ${90/gameEvents.size} minutes`
+// console.log(str);
 
-const mins = [...gameEvents.keys()].pop()
+// const mins = [...gameEvents.keys()].pop()
 // const lastValue = mins[mins.length - 1]
-console.log(mins/gameEvents.size);
+// console.log(mins/gameEvents.size);
 
+// 4.
+// for(const [key, value] of gameEvents){
+// const keys =
+// if(key <= 45){
+//   console.log(`[FIRST HALF] ${key}: ${value}`);
 
-// 4. 
-for(const [key, value] of events){
-  // const keys = 
-  if(key <= 45){
-    console.log(`[FIRST HALF] ${key}: ${value}`);
-    
-  }else{
-    console.log(`[SECOND HALF] ${key}: ${value}`);
-    
-  }
+//   }else{
+//     console.log(`[SECOND HALF] ${key}: ${value}`);
+
+//   }
+// }
+
+// STRINGS
+const airlines = "Pat Air Portugal";
+
+console.log(airlines.indexOf("Air"));
+console.log(airlines.lastIndexOf("Pat"));
+
+console.log(airlines.slice(0, 4));
+console.log(airlines.slice(0, airlines.indexOf(" ")));
+console.log(airlines.slice(airlines.lastIndexOf(" ") + 1));
+console.log(airlines.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  // B & E are middle seats
+  const middle =
+    seat.slice(-1) === "B" || seat.slice(-1) === "E"
+      ? "middle seat"
+      : "other seat";
+  console.log(middle);
+};
+checkMiddleSeat("11B");
+checkMiddleSeat("23C");
+checkMiddleSeat("3E");
+
+const names = function (capitalize) {
+  const newName = capitalize.toLowerCase();
+  const corrected = `${newName[0].toUpperCase()}${newName.slice(1)} `;
+  console.log(corrected);
+};
+names("cLARe");
+names("mike")
+
+const email = "hello@clare.io"
+const loginEmail = "  HELLO@CLARE.Io\n"
+const lowerEmail = loginEmail.toLowerCase().trim()
+console.log(lowerEmail === email);
+
+const priceE = "234,56e"
+const priceDols = priceE.replace("e", "$").replace(",",".")
+console.log(priceDols);
+
+const pass = "All passenger should come to boarding door 23. Boarding door 23!"
+const x = pass.replace(/door/g,"gate")
+// const x = pass.replaceAll("door", "gate")
+console.log(x);
+
+// three string methods can returns a boolean is - startsWith(), endsWith(), includes()
+const plane = "Airbus A320neo"
+console.log(plane.startsWith("Air"));
+
+const checkBaggage = function(items){
+  const item = items.toLowerCase()
+  const result = item.includes("gun") || item.includes("knife") ? "Not allowed onboard" : "Welcome on board"
+  console.log(result);
+  
+
 }
+checkBaggage("Has a Knife and gun")
+checkBaggage("Has pepper spray and water")
+checkBaggage("Got some snacks")
 
+console.log("i+love+javascript+so+much".split("+"));
 
+const [firstName, lastName] = "Clare Space".split(" ")
+const newName =  ["Mr.", firstName, lastName.toUpperCase()].join(" ")
+
+console.log(newName);
+
+console.log(firstName, lastName);
+
+function cap(item){
+  const items = item.split(" ")
+  let nameUpper = []
+  for(const name of items){
+    // nameUpper = `${name[0].toUpperCase()}${name.slice(1)}`   
+    nameUpper.push(name.replace(name[0], name[0].toUpperCase()))
+    // nameUpper.push(name[0].toUpperCase()+name.slice(1))
+  }
+  console.log(nameUpper.join(" "));
+}
+cap("jessica ann smith davis")
